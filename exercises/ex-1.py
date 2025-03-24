@@ -199,3 +199,28 @@ for a in p:
 
 import math
 print(math.isqrt(int(input()))
+
+#Integer Square Root: Part 2
+#Your task is to find how many numbers are there in L such that the integer square root of the numbers are strictly greater than K.
+
+#Solution:
+
+import math
+l = list(map(int, input().split()))
+k = int(input())
+z = list(filter(lambda t: math.isqrt(t) > k, l))
+print(len(z))
+      
+#Integer Square Root: Part 3
+#Your task is to find the maximum number are there in L such that the integer square root of the numbers are strictly greater than K.
+
+#Solution:
+
+import math
+l = list(map(int, input().split()))
+k = int(input())
+z = list(filter(lambda t: math.isqrt(t) > k, l))
+try:
+  print(max(z))
+except ValueError:
+  print(0)
