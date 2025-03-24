@@ -191,3 +191,11 @@ l = list(map(int, input().split()))
 p = itertools.permutations(l, len(l))
 for a in p:
   print(*a)
+
+#Integer Square Root: Part 1
+#Your task is to find the integer square root of N any number.
+
+#Solution:
+
+import math
+print(math.isqrt(int(input()))
