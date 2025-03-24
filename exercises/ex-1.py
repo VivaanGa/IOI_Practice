@@ -97,7 +97,7 @@ for _ in range(int(input())):
       break
 print(c)
 
-#Heapogiri
+#Heapogiri: Part 1
 #You are given a list of integers. Your task is to convert it into a min heap and print it.
 
 #Solution:
@@ -106,3 +106,88 @@ import heapq
 l = list(map(int, input().split()))
 heapq.heapify(l)
 print(*l)
+
+#Heapogiri: Part 2
+#You are given a list of integers. Your task is to convert it into a max heap and print it.
+
+#Solution:
+
+import heapq
+f = lambda t: -int(t)
+l = list(map(f, input().split()))
+heapq.heapify(l)
+print(*map(abs, l))
+
+#LIS Length: Part 1
+#You task is to find the length of the longest increasing subsequence in any integer list.
+
+#Solution:
+
+import bisect
+l = list(map(int, input().split()))
+s = []
+for i in range(len(l)):
+  if not s or s[-1] <= l[i]:
+    s.append(l[i])
+  else:
+    s[bisect.bisect(s, l[i])] = l[i]
+print(len(s))
+
+#Longest Decreasing Subsequence (LIS Length: Part 2)
+#You task is to find the length of the longest decreasing subsequence in any integer list.
+
+#Solution:
+
+import bisect
+l = list(map(int, input().split()))
+s = []
+for i in range(len(l)):
+  if not s or s[-1] >= l[i]:
+    s.append(l[i])
+  else:
+    s[bisect.bisect_left(s, l[i])] = l[i]
+print(len(s))
+
+#Is it a min-heap or max-heap? (Heapogiri: Part 3)
+#Your task is to find out if B is a min-heap or max-heap of A.
+
+#Solution:
+
+import heapq
+f = lambda t: -int(t)
+l = list(map(int, input().split()))
+h = list(map(int, input().split()))
+x = l
+heapq.heapify(x)
+y = list(map(f, l))
+heapq.heapify(y)
+y = list(map(f, y))
+print(h in {x, y})
+
+#Keep it a min-heap! (Heapogiri: Part 4)
+#You have given some numbers, your task is to insert or pop  them in such a way such that list is still a min heap.
+#Display all the integers by seperating them with space.
+#Commands: 1 for popping, 2 for inserting.
+
+#Solution:
+
+import heapq
+l = []
+for _ in range(int(input())):
+  c, n = map(int, input().split())
+  if c == 2 and l:
+    heapq.heappush(l, n)
+  elif c == 1:
+    heapq.heappop(l)
+print(*l)
+
+#Print the permutations
+#You have given some digits. Find the permutations of them.
+
+#Solution:
+
+import itertools
+l = list(map(int, input().split()))
+p = itertools.permutations(l, len(l))
+for a in p:
+  print(*a)
