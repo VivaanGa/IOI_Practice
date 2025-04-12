@@ -224,3 +224,15 @@ try:
   print(max(z))
 except ValueError:
   print(0)
+
+#What is x(n)?
+#x(n) = x(n-1) * 2 and x(1) = 1. What is x(n)?
+
+#Solution:
+
+n = int(input())
+dp = [0] * (n+1)
+dp[0] = 1
+for i in range(n-1):
+  dp[i+1] = dp[i]*2
+print(dp[n])
